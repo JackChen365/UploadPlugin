@@ -46,10 +46,12 @@ class JitPackUploadPlugin implements Plugin<Project> {
                 if(project.plugins.hasPlugin(JavaPlugin)){
                     project.plugins.apply('maven')
                     project.setGroup(module.group)
+                    println("Java-module:${project.name} set group:${module.group}")
                     prepareJARArtifacts(project)
                 } else if(project.plugins.hasPlugin(LibraryPlugin)){
                     project.plugins.apply('com.github.dcendents.android-maven')
                     project.setGroup(module.group)
+                    println("Android-module:${project.name} set group:${module.group}")
                     prepareAARArtifacts(project)
                 }
             }
