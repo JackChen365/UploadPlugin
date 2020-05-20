@@ -10,7 +10,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         classpath "com.github.dcendents:android-maven-gradle-plugin:2.1"
-//        classpath 'com.github.momodae.UploadPlugin:jitpack:1.0.1'
+        classpath 'com.github.momodae.UploadPlugin:jitpack:1.0.0'
 //        classpath 'com.cz.upload:jitpack:1.0.0'
 //        classpath 'com.cz.upload.plugin:upload-plugin:1.0.0'//本地maven
         // NOTE: Do not place your application dependencies here; they belong
@@ -26,25 +26,25 @@ allprojects {
     }
 }
 
-//apply plugin: 'jitpack.upload'
-//jitpack{
-//    module{
-//        name "library"
-//        group "com.cz.upload.test.library"
-//    }
-//    module{
-//        name "library2"
-//        group "com.cz.upload.test.library2"
-//    }
-//    module{
-//        name "uploadplugin"
-//        group "com.cz.upload.plugin"
-//    }
-//}
+apply plugin: 'jitpack.upload'
+jitpack{
+    module{
+        name "library"
+        group "com.cz.upload.test.library"
+    }
+    module{
+        name "library2"
+        group "com.cz.upload.test.library2"
+    }
+    module{
+        name "uploadplugin"
+        group "com.cz.upload.plugin"
+    }
+}
 
-//task clean(type: Delete) {
-//    delete rootProject.buildDir
-//}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
 
 //加入自定义上传配置
 //apply from: "maven/upload-maven-config.gradle"
