@@ -1,0 +1,2 @@
+include ':app', ':uploadplugin', ':library', ':library2', ':javalib', ':jitpack'
+rootProject.name='UploadMavenPlugin'

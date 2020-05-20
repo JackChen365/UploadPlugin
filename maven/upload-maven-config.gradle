@@ -1,0 +1,42 @@
+//上传配置
+apply plugin: 'maven'
+apply plugin: 'com.cz.upload.plugin'
+maven {
+    repository{
+        name "chenzhen"
+        url "http://www.momoda.pro:8081/repository/maven/"
+        userName "admin"
+        userPassword {
+            def properties = new Properties()
+            properties.load(project.rootProject.file('local.properties').newDataInputStream())
+            properties.getProperty("cz.maven.password")
+        }
+        module{
+            name="library"
+            groupId "com.cz.upload.test.library"
+            artifactId "upload-library"
+            version "1.0.0"
+            description "演示1"
+
+            dependencyFlavor{
+                name "version28"
+                implementation "com.android.support:appcompat-v7:28.0.0"
+                implementation "com.android.support:design:28.0.0"
+                implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+            }
+        }
+        module{
+            name="library2"
+            groupId "com.cz.upload.test.library2"
+            artifactId "upload-library2"
+            version "1.0.0"
+            description "演示2"
+
+            dependencyFlavor{
+                name "version28"
+                implementation "com.android.support:appcompat-v7:28.0.0"
+                implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+            }
+        }
+    }
+}
